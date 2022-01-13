@@ -1,4 +1,5 @@
 def is_palindrome(phrase):
+
     """Is phrase a palindrome?
 
     Return True/False if phrase is a palindrome (same read backwards and
@@ -21,3 +22,11 @@ def is_palindrome(phrase):
         >>> is_palindrome('Noon')
         True
     """
+
+    edited_phrase = phrase.replace(" ", "").lower()
+    palindrome = edited_phrase[::-1]
+
+    if edited_phrase == palindrome:
+        return True
+    else:
+         return False

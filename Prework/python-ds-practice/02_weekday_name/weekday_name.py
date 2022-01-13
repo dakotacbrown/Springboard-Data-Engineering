@@ -1,12 +1,4 @@
 def weekday_name(day_of_week):
-    days = ["none", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-    selection = " "
-    if day_of_week in range(1, 8):
-        selection = days(day_of_week)
-    else:
-        selection = days(0)
-
-    return selection
 
     """Return name of weekday.
     
@@ -21,3 +13,12 @@ def weekday_name(day_of_week):
         >>> weekday_name(9)
         >>> weekday_name(0)
     """
+    days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    selection = " "
+    if day_of_week in range(1, 9):
+        selection = days[day_of_week-1]
+        selection = selection.capitalize()
+    else:
+        selection = None
+
+    return selection
