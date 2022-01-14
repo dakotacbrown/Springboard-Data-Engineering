@@ -19,3 +19,5 @@ def partition(lst, fn):
         >>> partition(["hi", None, 6, "bye"], is_string)
         [['hi', 'bye'], [None, 6]]
     """
+
+    return [list(filter(lambda l: fn(l), lst)), list(filter(lambda l: not fn(l), lst))]

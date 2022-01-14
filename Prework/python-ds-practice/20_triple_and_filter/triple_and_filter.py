@@ -1,4 +1,5 @@
 def triple_and_filter(nums):
+
     """Return new list of tripled nums for those nums divisible by 4.
 
     Return every number in list that is divisible by 4 in a new list,
@@ -13,3 +14,9 @@ def triple_and_filter(nums):
         >>> triple_and_filter([1, 2])
         []
     """
+    lst = []
+    for iterator, num in enumerate(nums):
+        if num % 4 == 0:
+            lst.append(num * 3)
+
+    return lst

@@ -16,3 +16,13 @@ def friend_date(a, b):
         >>> friend_date(sauron, gandalf)
         True
     """
+
+    name_a, age_a, list_of_hobbies_a = a
+    name_b, age_b, list_of_hobbies_b = b
+
+    similar_hobbies = set(list_of_hobbies_a).intersection(list_of_hobbies_b)
+
+    if similar_hobbies:
+        return True
+    else:
+        return False
