@@ -1,4 +1,5 @@
 def remove_every_other(lst):
+
     """Return a new list of other item.
 
         >>> lst = [1, 2, 3, 4, 5]
@@ -11,3 +12,7 @@ def remove_every_other(lst):
         >>> lst
         [1, 2, 3, 4, 5]
     """
+    newlst = lst.copy()
+    for num in newlst[1::2]:
+        newlst.remove(num)
+    return newlst
