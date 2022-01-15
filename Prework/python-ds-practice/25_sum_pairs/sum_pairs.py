@@ -21,6 +21,15 @@ def sum_pairs(nums, goal):
         >>> sum_pairs([11, 20, 4, 2, 1, 5], 100)
         ()
     """
-    for previous, current in zip(nums, nums[1:]):
-        if previous + current == goal:
-            return tuple(previous, current)
+
+ ##   for previous, current in zip(nums, nums[1:]):
+ ##       if previous + current == goal:
+ ##           return previous, current
+ ##   return ()
+
+    seen = set()
+    for item in nums:
+        if goal - item in seen:
+            return (goal - item, item)
+        seen.add(item)
+    return ()
