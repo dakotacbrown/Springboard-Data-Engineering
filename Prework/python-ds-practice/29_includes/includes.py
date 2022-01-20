@@ -1,4 +1,5 @@
 def includes(collection, sought, start=None):
+
     """Is sought in collection, starting at index start?
 
     Return True/False if sought is in the given collection:
@@ -30,3 +31,25 @@ def includes(collection, sought, start=None):
         >>> includes({"apple": "red", "berry": "blue"}, "blue")
         True
     """
+
+    if start == None or (isinstance(collection, set) or isinstance(collection, dict)):
+        if isinstance(collection, dict):
+            for key, value in collection.items():
+                if value == sought:
+                    return True
+        else:
+            for value in collection:
+                if value == sought:
+                    return True
+    elif start != None:
+        for value in range(start, len(collection)):
+            if collection[value] == sought:
+                return True
+    return False
+
+    ## springboard solution is better
+    ##  if isinstance(collection, dict):
+    ##      return sought in collection.values()
+    ##  if start is None or isinstance(collection, set):
+    ##      return sought in collection
+    ##  return sought in collection[start:]

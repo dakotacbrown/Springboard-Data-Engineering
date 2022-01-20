@@ -1,3 +1,5 @@
+from collections import Counter
+
 def valid_parentheses(parens):
     """Are the parentheses validly balanced?
 
@@ -22,3 +24,12 @@ def valid_parentheses(parens):
         >>> valid_parentheses(")()(")
         False
     """
+
+    count = Counter(parens)
+
+    if count['('] == count[')']:
+        if parens[0] == '(' and parens[-1] == ')':
+            return True
+    else:
+         return False
+    return False

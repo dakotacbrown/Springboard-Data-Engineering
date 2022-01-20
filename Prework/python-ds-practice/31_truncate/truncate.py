@@ -1,3 +1,4 @@
+from math import floor
 def truncate(phrase, n):
     """Return truncated-at-n-chars version of  phrase.
     
@@ -24,3 +25,9 @@ def truncate(phrase, n):
         >>> truncate("Woah", 3)
         '...'
     """
+    if n >= 3:
+        if len(phrase) >= n:
+            return str(phrase[:n-3]) + '...'
+        return str(phrase[:n])
+    else:
+        return 'Truncation must be at least 3 characters.'

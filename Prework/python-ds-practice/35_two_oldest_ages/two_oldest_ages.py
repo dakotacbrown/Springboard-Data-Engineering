@@ -14,6 +14,14 @@ def two_oldest_ages(ages):
         (2, 5)
     """
 
+    sortedlst = sorted(ages)
+    age1 = sortedlst[-1]
+    sortedlst = list(filter(age1.__ne__, sortedlst))
+    age2 = sortedlst[-1]
+    return (age2, age1)
+
+    #future reference **** SET MAKES DISTINCT SEQUENCE
+
     # NOTE: don't worry about an optimized runtime here; it's fine if
     # you have a runtime worse than O(n)
 

@@ -19,3 +19,12 @@ def reverse_vowels(s):
     reverse_vowels("why try, shy fly?")
     'why try, shy fly?''
     """
+
+    wordlst = list(s)
+    palindrome = list("".join([letter for letter in wordlst[::-1] if letter in "aeiouAEIOU"]))
+    for iterator, i in enumerate(wordlst):
+        if i in 'aeiouAEIOU':
+            wordlst.pop(iterator)
+            wordlst.insert(iterator, palindrome[0])
+            palindrome.pop(0)
+    return "".join(wordlst)
