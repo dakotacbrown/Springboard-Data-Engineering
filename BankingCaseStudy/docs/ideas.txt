@@ -1,0 +1,22 @@
+customers:
+	first name
+	last name
+	address
+
+accounts:
+	account_owner
+	account_type
+	deposit
+	withdrawl
+	balance
+
+employees:
+	id
+	first name
+	last name
+	salary
+
+services:
+	loans
+		how much
+	credit_card
