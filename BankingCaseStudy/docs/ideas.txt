@@ -1,22 +1,43 @@
 customers:
-	first name
-	last name
-	address
+	init:
+		id : int
+		first name : str
+		last name : str
+		address : str
 
 accounts:
-	account_owner
-	account_type
-	deposit
-	withdrawl
-	balance
+	init:
+		account_type : str (checking or savings)
+			account_num : int 
+			account_owner : str (first name + last name should match customers or employee first and last)
+			balance : float (if less than 0, overdraft fee of $10) ?? if I have time to implement
+	methods:
+		deposit : float (adds money onto balance)
+		withdrawl : float (subtracts money from balance)
 
 employees:
-	id
-	first name
-	last name
-	salary
+	init:
+		id : int
+		first name : str
+		last name : str
+		position : str
+		active: bool
+		salary : float
 
 services:
-	loans
-		how much
-	credit_card
+	init:
+		loans
+			loan_id : int
+			loan_holder : str (first name + last name last name should match customers or employee first and last)
+			total_loan : float (total price loan)
+			remaining_loan : float (how much paid off of loan) ??
+			method:
+				pay_on : float (enter amount you want to pay on loan, subtract from remaining_loan, return new remaining_loan) ??
+	
+		credit_cards
+			cc_number : int (16 digit number)
+			card_holder : str (first name + last name last name should match customers or employee first and last)
+			credit_limit : float (how much credit is on the card)
+			current_statement : float (how much money spent so far on card. Cannot be more than limit) ??
+			method:
+				pay_on : float (enter amount you would like to pay on the card, return new credit limit cannot be more than current statement) ??

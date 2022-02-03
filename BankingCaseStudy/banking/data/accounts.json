@@ -1,0 +1,116 @@
+{
+    "accounts" : {
+        "savings" : [
+            {
+                "account_num" : 10000,
+                "firstName" : "Dakota",
+                "lastName" : "Brown",
+                "balance" : 5000000.00
+            },
+            {
+                "account_num" : 10001,
+                "firstName" : "Kim",
+                "lastName" : "Tellez",
+                "balance" : 500000.00
+            },
+            {
+                "account_num" : 10002,
+                "firstName" : "Clemel",
+                "lastName" : "Scott",
+                "balance" : 5000.00
+            },
+            {
+                "account_num" : 10003,
+                "firstName" : "John",
+                "lastName" : "Doeson",
+                "balance" : 2000.00
+            },
+            {
+                "account_num" : 10004,
+                "firstName" : "Maria",
+                "lastName" : "Brown",
+                "balance" : 5500.00
+            },
+            {
+                "account_num" : 10005,
+                "firstName" : "Reggie",
+                "lastName" : "Ash",
+                "balance" : 5500.00
+            },
+            {
+                "account_num" : 10006,
+                "firstName" : "Nichole",
+                "lastName" : "Potter",
+                "balance" : 1000.00
+            },
+            {
+                "account_num" : 10007,
+                "firstName" : "Kenneth",
+                "lastName" : "Potter",
+                "balance" : 500.00
+            },
+            {
+                "account_num" : 10008,
+                "firstName" : "Bernard",
+                "lastName" : "Brown",
+                "balance" : 20000.00
+            }
+        ],
+        "checking" : [
+            {
+                "account_num" : 20000,
+                "firstName" : "Dakota",
+                "lastName" : "Brown",
+                "balance" : 2000000.00
+            },
+            {
+                "account_num" : 20001,
+                "firstName" : "Kim",
+                "lastName" : "Tellez",
+                "balance" : 750000.00
+            },
+            {
+                "account_num" : 20002,
+                "firstName" : "Clemel",
+                "lastName" : "Scott",
+                "balance" : 7000.00
+            },
+            {
+                "account_num" : 20003,
+                "firstName" : "John",
+                "lastName" : "Doeson",
+                "balance" : 5000.00
+            },
+            {
+                "account_num" : 20004,
+                "firstName" : "Maria",
+                "lastName" : "Brown",
+                "balance" : 10000.00
+            },
+            {
+                "account_num" : 20005,
+                "firstName" : "Reggie",
+                "lastName" : "Ash",
+                "balance" : 10000.00
+            },
+            {
+                "account_num" : 20006,
+                "firstName" : "Nichole",
+                "lastName" : "Potter",
+                "balance" : 3000.00
+            },
+            {
+                "account_num" : 20007,
+                "firstName" : "Kenneth",
+                "lastName" : "Potter",
+                "balance" : 2000.00
+            },
+            {
+                "account_num" : 20008,
+                "firstName" : "Bernard",
+                "lastName" : "Brown",
+                "balance" : 15000.00
+            }
+        ] 
+    }
+}

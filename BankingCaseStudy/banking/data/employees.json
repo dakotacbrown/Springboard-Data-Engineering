@@ -1,0 +1,36 @@
+{
+    "employees" : [
+        {
+            "id" : 1,
+            "firstName" : "Dakota",
+            "lastName" : "Brown",
+            "position" : "CEO",
+            "active" : true,
+            "salary" : 3000000.00
+        },
+        {
+            "id" : 2,
+            "firstName" : "Kim",
+            "lastName" : "Tellez",
+            "position" : "President",
+            "active" : true,
+            "salary" : 1500000.00
+        },
+        {
+            "id" : 3,
+            "firstName" : "Clemel",
+            "lastName" : "Scott",
+            "position" : "Teller",
+            "active" : true,
+            "salary" : 75000.00
+        },
+        {
+            "id" : 4,
+            "firstName" : "John",
+            "lastName" : "Doeson",
+            "position" : "Teller",
+            "active" : false,
+            "salary" : 75000.00
+        }
+    ]
+}

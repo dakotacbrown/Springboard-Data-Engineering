@@ -1,0 +1,62 @@
+{
+    "services" : {
+        "loans" : [
+            {
+                "loan_id" : 10000,
+                "firstName" : "John",
+                "lastName" : "Doeson",
+                "balance" : 2000.00
+            },
+            {
+                "loan_id" : 10001,
+                "firstName" : "Maria",
+                "lastName" : "Brown",
+                "balance" : 5500.00
+            },
+            {
+                "loan_id" : 10002,
+                "firstName" : "Reggie",
+                "lastName" : "Ash",
+                "balance" : 5500.00
+            },
+            {
+                "loan_id" : 10003,
+                "firstName" : "Kenneth",
+                "lastName" : "Potter",
+                "balance" : 500.00
+            }
+        ],
+        "credit_cards" : [
+            {
+                "cc_num" : 4539833529665859,
+                "firstName" : "Dakota",
+                "lastName" : "Brown",
+                "credit_limit" : 2000000.00
+            },
+            {
+                "cc_num" : 4485650819981422,
+                "firstName" : "Kim",
+                "lastName" : "Tellez",
+                "credit_limit" : 1000000.00
+            },
+            {
+                "cc_num" : 4589786016833183,
+                "firstName" : "Clemel",
+                "lastName" : "Scott",
+                "credit_limit" : 20000.00
+            },
+            {
+                "cc_num" : 4336282226167212,
+                "firstName" : "Nichole",
+                "lastName" : "Potter",
+                "credit_limit" : 10000.00
+            },
+            {
+                "cc_num" : 4018739679267166,
+                "firstName" : "Bernard",
+                "lastName" : "Brown",
+                "credit_limit" : 20000.00
+            }
+        ]
+    }
+}
