@@ -34,6 +34,88 @@ employeesHolder = df_employees[0].apply(lambda item: Employees(item['id'], item[
 loansHolder = df_services[1].apply(lambda item: Services("loans", item['loan_id'], item['firstName'], item['lastName'], item['balance'], item['need_to_pay']), axis=1)
 savingsHolder = df_accounts[1].apply(lambda item: Accounts("savings", item['account_num'], item['firstName'], item['lastName'], item['balance']) , axis=1)
 
+def savingsChecker():
+    isSavingsChecker = True
+    while isSavingsChecker:
+        try:
+            userInput = input("Welcome to the Banking Service.\n"
+            "What would you like to do?:\n"
+            "Check Balance: 'CB'\n"
+            "Withdraw Money: 'WM'\n"
+            "Deposit Money: 'DM'\n"
+            "Main Menu: 'MM'\n"
+            )
+            if userInput.lower() == "mm" or userInput.lower() == "":
+                isSavingsChecker = False
+                break
+        except:
+            pass
+        else:
+            pass
+        finally:
+            pass
+
+def checkingChecker():
+    isCheckingChecker = True
+    while isCheckingChecker:
+        try:
+            userInput = input("Welcome to the Banking Service.\n"
+            "What would you like to do?:\n"
+            "Check Balance: 'CB'\n"
+            "Withdraw Money: 'WM'\n"
+            "Deposit Money: 'DM'\n"
+            "Main Menu: 'MM'\n"
+            )
+            if userInput.lower() == "mm" or userInput.lower() == "":
+                isCheckingChecker = False
+                break
+        except:
+            pass
+        else:
+            pass
+        finally:
+            pass
+
+def loanChecker():
+    isLoanChecker = True
+    while isLoanChecker:
+        try:
+            userInput = input("Welcome to the Banking Service.\n"
+            "What would you like to do?:\n"
+            "Check Balance: 'CB'\n"
+            "Pay On Loan: 'PL'\n"
+            "Main Menu: 'MM'\n"
+            )
+            if userInput.lower() == "mm" or userInput.lower() == "":
+                isLoanChecker = False
+                break
+        except:
+            pass
+        else:
+            pass
+        finally:
+            pass
+
+def loanChecker():
+    isLoanChecker = True
+    while isLoanChecker:
+        try:
+            userInput = input("Welcome to the Banking Service.\n"
+            "What would you like to do?:\n"
+            "Check Balance: 'CB'\n"
+            "Pay On Loan: 'PL'\n"
+            "Main Menu: 'MM'\n"
+            )
+            if userInput.lower() == "mm" or userInput.lower() == "":
+                isLoanChecker = False
+                break
+        except:
+            pass
+        else:
+            pass
+        finally:
+            pass
+
 isProgramGoing = True
 
 while isProgramGoing:
@@ -51,6 +133,10 @@ while isProgramGoing:
         if userInput.lower() == "ex" or userInput.lower() == "":
             isProgramGoing = False
             break
+        elif userInput.lower() == "sa":
+            savingsChecker()
+        elif userInput.lower() == "ca":
+            savingsChecker()
     except:
         pass
     else:

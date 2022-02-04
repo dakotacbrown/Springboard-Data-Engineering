@@ -21,7 +21,7 @@ def json_parser(json_path, size=1):
     if json_path[-5:] != '.json':                                                           #Checks if received correct file type
         raise ValueError("Wrong file type given. Function only accepts JSON.")
     else:
-        if size > 2:                                                                        #If size value is too much throw an error
+        if size > 2 or size < 1:                                                            #If size value is too small or large throw an error
             raise ValueError("Size can only be between 1 and 2 for this data parser.")
         elif size == 1:
             data_from_1d_json = pd.read_json(json_path)                                     #Get the json info from the file for size=1
