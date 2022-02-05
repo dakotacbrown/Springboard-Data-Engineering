@@ -101,13 +101,14 @@ class Accounts(object):
         -------
         Updates the class's balance.
         """
-        if self._balance == 0.0:
+        if self.balance == 0.0:
             print("Your balance is at $0. You cannot withdraw money.")
         elif self._balance < 0.0:
-            print("You have withdrawn your account. A $10 fee has been added.")
-            self._balance = self._balance - (amount + 10)
+            self.balance = self.balance - (amount + 10)
+            print("Your account is overdrawn. A $10 fee has been added. Account balance: {balance}".format(balance = self.balance))
         else:
-            self._balance = self._balance - amount
+            self.balance = self.balance - amount
+            print("Updated account balance after withdrawl: ${balance}.".format(balance = self.balance))
 
     def deposit(self, amount):
         """
@@ -122,7 +123,8 @@ class Accounts(object):
         -------
         Updates the class's balance.
         """
-        self._balance = self._balance + amount
+        self.balance = self.balance + amount
+        print("Updated account balance after deposit: ${balance}.".format(balance = self.balance))
 
     def __repr__(self):
         return "Accounts(\nacc_type = '{acc_type}'\nacc_num = {acc_num}\nfirstName = '{firstName}'\nlastName = '{lastName}'\nbalance = {balance}\n)".format(

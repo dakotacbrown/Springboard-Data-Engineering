@@ -53,12 +53,7 @@ class Services(Accounts):
         else:
             self._acc_type = acc_type
     
-    @Accounts.acc_num.getter                                                #acc_num Property Creation
-    def acc_num(self):
-        """int: ID of a customer."""
-        return self._acc_num
-    
-    @Accounts.acc_num.setter
+    @Accounts.acc_num.setter                                          #acc_num Property Creation
     def acc_num(self, new_acc_num):
         if self._acc_type == "loans":
             self._acc_num = new_acc_num
@@ -81,15 +76,15 @@ class Services(Accounts):
         -------
         Updates the class's remaining loan/credit card balance.
         """
-        if self._repay == 0.0:
+        if self.repay == 0.0:
             print("Your remaining balance is at $0. You have nothing to pay.")
         else:
-            self._repay = self._repay - amount
-            if self._repay <= 0.0:
-                self._repay = 0.0
+            self.repay = self.repay - amount
+            if self.repay <= 0.0:
+                self.repay = 0.0
                 print("Your remaining balance is at $0. You paid off your balance.")
             else:
-                print("You still have ${0} to pay on {1}.".format(self._repay, self._acc_type))
+                print("You still have ${0} to pay on {1}.".format(self.repay, self.acc_type))
     
     def __repr__(self):
         return "Services extends Accounts(\nacc_type = '{acc_type}'\nacc_num = {acc_num}\nfirstName = '{firstName}'\nlastName = '{lastName}'\nbalance = {balance}\nrepay = {repay}\n)".format(
