@@ -108,17 +108,19 @@ class CreditCard:
                 input("Please press enter to continue.")
 
     def payCard(self, person):
-        amount = input("Please enter the amount you would like to pay: ")
-        while float(amount) < 0 or not isinstance(amount, float):
-            amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or amount: ".format(repay = person.repay))
-            if amount.lower() == "y" or amount.lower() == "":
+        while True:
+            amount = input("Please enter the amount you would like to pay: ")
+            try:
+                val = float(amount)
+                self.loansHolder.remove(person)
+                person.pay_on(val)
+                self.loansHolder.append(person)
                 break
-        if not isinstance(float(amount), float):
-            input("Please press enter to continue.")
-        else:
-            self.ccHolder.remove(person)
-            person.pay_on(float(amount))
-            self.ccHolder.append(person)
+            except ValueError:
+                amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or amount: ".format(repay = person.repay))
+                if amount.lower() == "y" or amount.lower() == "":
+                    input("Please press enter to continue.")
+                    break
 
     def convertToJson(self):
         ccDict = {"credit_cards" : [{"cc_num" : int(cc.acc_num), "firstName" : cc.firstName, "lastName" : cc.lastName, "credit_limit": float(cc.balance), "need_to_pay" : float(cc.repay)} for cc in self.ccHolder]}

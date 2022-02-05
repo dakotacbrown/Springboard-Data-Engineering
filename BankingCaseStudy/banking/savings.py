@@ -105,31 +105,34 @@ class Savings:
                 input("Please press enter to continue.")
 
     def deposit(self, person):
-        amount = input("Please enter the amount you would like to deposit: ")
-        while float(amount) < 0 or not isinstance(amount, float):
-            amount = input("Please enter a valid amount, or would you like to quit? Y or valid amount: ")
-            if amount.lower() == "y" or amount.lower() == "":
+        while True:
+            amount = input("Please enter the amount you would like to deposit: ")
+            try:
+                val = float(amount)
+                self.savingsHolder.remove(person)
+                person.deposit(val)
+                self.savingsHolder.append(person)
                 break
-        if not isinstance(amount, float):
-            input("Please press enter to continue.")
-        else:
-            self.savingsHolder.remove(person)
-            person.deposit(float(amount))
-            self.savingsHolder.append(person)
+            except ValueError:
+                amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                if amount.lower() == "y" or amount.lower() == "":
+                    input("Please press enter to continue.")
+                    break
 
     def withdraw(self, person):
-        amount = input("Please enter the amount you would like to deposit: ")
-        while float(amount) < 0 or not isinstance(amount, float):
-            amount = input("Please enter a valid amount, or would you like to quit? Y or valid amount: ")
-            if amount.lower() == "y" or amount.lower() == "":
+        while True:
+            amount = input("Please enter the amount you would like to withdraw: ")
+            try:
+                val = float(amount)
+                self.savingsHolder.remove(person)
+                person.withdraw(val)
+                self.savingsHolder.append(person)
                 break
-        if not isinstance(amount, float):
-            input("Please press enter to continue.")
-        else:
-            self.savingsHolder.remove(person)
-            person.withdraw(float(amount))
-            self.savingsHolder.append(person)
-
+            except ValueError:
+                amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                if amount.lower() == "y" or amount.lower() == "":
+                    input("Please press enter to continue.")
+                    break
 
     def convertToJson(self):
         ccDict = {"savings" : [{"account_num" : int(saving.acc_num), "firstName" : saving.firstName, "lastName" : saving.lastName, "balance": float(saving.balance)} for saving in self.savingsHolder]}

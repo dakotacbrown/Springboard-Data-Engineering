@@ -53,6 +53,12 @@
             "firstName": "Bernard",
             "lastName": "Brown",
             "balance": 15000.0
+        },
+        {
+            "account_num": 20009,
+            "firstName": "Kim",
+            "lastName": "Brown",
+            "balance": 0.0
         }
     ]
 }

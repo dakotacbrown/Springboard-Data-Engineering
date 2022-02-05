@@ -25,7 +25,7 @@ class Checking:
                 break
             elif userInput.lower() == 'ai':
                 self.checkBalance()
-            elif userInput.lower() == 'as':
+            elif userInput.lower() == 'ac':
                 self.checkingApply()
 
     def checkBalance(self):
@@ -105,30 +105,34 @@ class Checking:
                 input("Please press enter to continue.")
 
     def deposit(self, person):
-        amount = input("Please enter the amount you would like to deposit: ")
-        while float(amount) < 0 or not isinstance(amount, float):
-            amount = input("Please enter a valid amount, or would you like to quit? Y or valid amount: ")
-            if amount.lower() == "y" or amount.lower() == "":
+        while True:
+            amount = input("Please enter the amount you would like to deposit: ")
+            try:
+                val = float(amount)
+                self.checkHolder.remove(person)
+                person.deposit(val)
+                self.checkHolder.append(person)
                 break
-        if not isinstance(amount, float):
-            input("Please press enter to continue.")
-        else:
-            self.checkHolder.remove(person)
-            person.deposit(float(amount))
-            self.checkHolder.append(person)
+            except ValueError:
+                amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                if amount.lower() == "y" or amount.lower() == "":
+                    input("Please press enter to continue.")
+                    break
 
     def withdraw(self, person):
-        amount = input("Please enter the amount you would like to deposit: ")
-        while float(amount) < 0 or not isinstance(amount, float):
-            amount = input("Please enter a valid amount, or would you like to quit? Y or valid amount: ")
-            if amount.lower() == "y" or amount.lower() == "":
+        while True:
+            amount = input("Please enter the amount you would like to withdraw: ")
+            try:
+                val = float(amount)
+                self.checkHolder.remove(person)
+                person.withdraw(val)
+                self.checkHolder.append(person)
                 break
-        if not isinstance(amount, float):
-            input("Please press enter to continue.")
-        else:
-            self.checkHolder.remove(person)
-            person.withdraw(float(amount))
-            self.checkHolder.append(person)
+            except ValueError:
+                amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                if amount.lower() == "y" or amount.lower() == "":
+                    input("Please press enter to continue.")
+                    break
 
 
     def convertToJson(self):
