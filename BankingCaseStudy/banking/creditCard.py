@@ -35,48 +35,55 @@ class CreditCard:
         while isCsChecker:
             ccNum = input("Check statement was selected.\n"
             "Please enter your 16-digit credit card number: ")
-            if len(str(ccNum)) != 16:
-                userInput = input("Please enter a valid 16-digit credit card number.\n"
-                "If you are not currently a member, would you like to apply for a credit card? Y or N (If not, press enter.): ")
-                if userInput.lower() == 'y':
-                    self.ccApply()
-                    isCsChecker = False
-                    break
-                elif userInput.lower() != 'n':
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                    isCsChecker = False
-                    break
-            else:
-                lastName = input("Please enter your last name: ")
-                checker = [cc for cc in self.ccHolder if cc.acc_num == int(ccNum) and cc.lastName.lower() == lastName.lower()]
-                if not checker:
-                    userInput = input("You were not found in our system.\n" 
-                    "Would you like to apply for a credit card? Y or N: ")
+            try:
+                val = int(ccNum)
+                try:
+                    if len(str(val)) == 16:
+                        lastName = input("Please enter your last name: ")
+                        checker = [cc for cc in self.ccHolder if cc.acc_num == int(ccNum) and cc.lastName.lower() == lastName.lower()]
+                        if not checker:
+                            userInput = input("You were not found in our system.\n" 
+                            "Would you like to apply for a credit card? Y or N: ")
+                            if userInput.lower() == 'y':
+                                self.ccApply()
+                                isCsChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isCsChecker = False
+                                break
+                        elif checker:
+                            print("Current statement balance: ${balance}.".format(balance = checker[0].repay))
+                            if checker[0].repay > 0.0:
+                                userInput = input("Would you like to pay on your balance? Y or N: ")
+                                if userInput.lower() == 'y':
+                                    self.payCard(checker[0])
+                                    input("Returning to the previous menu. (Press enter to continue.)")
+                                    isCsChecker = False
+                                    break
+                                else:
+                                    input("Returning to the previous menu. (Press enter to continue.)")
+                                    isCsChecker = False
+                                    break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    userInput = input("Please enter a valid 16-digit credit card number.\n"
+                    "If you are not currently a member, would you like to apply for a credit card? Y or N: ")
                     if userInput.lower() == 'y':
                         self.ccApply()
                         isCsChecker = False
                         break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isCsChecker = False
-                        break
-                elif checker:
-                    print("Current statement balance: ${balance}.".format(balance = checker[0].repay))
-                    if checker[0].repay > 0.0:
-                        userInput = input("Would you like to pay on your balance? Y or N: ")
-                        if userInput.lower() == 'y':
-                            self.payCard(checker[0])
-                            input("Returning to the previous menu. (Press enter to continue.)")
-                            isCsChecker = False
-                            break
-                        else:
-                            input("Returning to the previous menu. (Press enter to continue.)")
-                            isCsChecker = False
-                            break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        break
-
+            except ValueError:
+                userInput = input("Please enter a valid 16-digit credit card number.\n"
+                "If you are not currently a member, would you like to apply for a credit card? Y or N: ")
+                if userInput.lower() == 'y':
+                    self.ccApply()
+                    isCsChecker = False
+                    break
 
     def ccApply(self):
             firstName = input("Enter your first name: ")
@@ -112,17 +119,27 @@ class CreditCard:
             amount = input("Please enter the amount you would like to pay: ")
             try:
                 val = float(amount)
-                self.loansHolder.remove(person)
-                person.pay_on(val)
-                self.loansHolder.append(person)
-                break
+                try:
+                    if float(val) > 0:
+                        self.ccHolder.remove(person)
+                        person.pay_on(val)
+                        self.ccHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or N: ".format(repay = person.repay))
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
             except ValueError:
-                amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or amount: ".format(repay = person.repay))
+                amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or N: ".format(repay = person.repay))
                 if amount.lower() == "y" or amount.lower() == "":
                     input("Please press enter to continue.")
                     break
 
     def convertToJson(self):
+        sorted(self.ccHolder, key = lambda i: i['acc_num'])
         ccDict = {"credit_cards" : [{"cc_num" : int(cc.acc_num), "firstName" : cc.firstName, "lastName" : cc.lastName, "credit_limit": float(cc.balance), "need_to_pay" : float(cc.repay)} for cc in self.ccHolder]}
 
         with open('data/credit_cards.json', 'w') as outfile:

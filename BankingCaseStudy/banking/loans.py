@@ -31,50 +31,57 @@ class Loans:
     def checkBalance(self):
         isBalChecker = True
         while isBalChecker:
-            ccNum = input("Check statement was selected.\n"
+            loanNum = input("Check statement was selected.\n"
             "Please enter your 5-digit account number: ")
-            if len(str(ccNum)) != 5:
-                userInput = input("Please enter a valid 5-digit account number.\n"
-                "If you currently a do not have a loan, would you like to apply for a loan? Y or N (If not, press enter.): ")
-                if userInput.lower() == 'y':
-                    self.loanApply()
-                    isBalChecker = False
-                    break
-                elif userInput.lower() != 'n':
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                    isBalChecker = False
-                    break
-            else:
-                lastName = input("Please enter your last name: ")
-                checker = [cc for cc in self.loansHolder if cc.acc_num == int(ccNum) and cc.lastName.lower() == lastName.lower()]
-                if not checker:
-                    userInput = input("You were not found in our system.\n" 
-                    "Would you like to apply for a loan? Y or N: ")
+            try:
+                val = int(loanNum)
+                try:
+                    if len(str(val)) == 5:
+                        lastName = input("Please enter your last name: ")
+                        checker = [loan for loan in self.loansHolder if loan.acc_num == int(loanNum) and loan.lastName.lower() == lastName.lower()]
+                        if not checker:
+                            userInput = input("You were not found in our system.\n" 
+                            "Would you like to apply for a credit card? Y or N: ")
+                            if userInput.lower() == 'y':
+                                self.loanApply()
+                                isBalChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                        elif checker:
+                            print("Current balance: ${balance}.".format(balance = checker[0].repay))
+                            if checker[0].repay > 0.0:
+                                userInput = input("Would you like to pay on your balance? Y or N: ")
+                                if userInput.lower() == 'y':
+                                    self.payLoan(checker[0])
+                                    input("Returning to the previous menu. (Press enter to continue.)")
+                                    isBalChecker = False
+                                    break
+                                else:
+                                    input("Returning to the previous menu. (Press enter to continue.)")
+                                    isBalChecker = False
+                                    break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    userInput = input("Please enter a valid 5-digit account number.\n"
+                    "If you are not currently a member, would you like to apply for a $5000 loan? Y or N: ")
                     if userInput.lower() == 'y':
                         self.loanApply()
                         isBalChecker = False
                         break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                elif checker:
-                    print("Current balance: ${balance}.".format(balance = checker[0].repay))
-                    if checker[0].repay > 0.0:
-                        userInput = input("Would you like to pay on your balance? Y or N: ")
-                        if userInput.lower() == 'y':
-                            self.payLoan(checker[0])
-                            input("Returning to the previous menu. (Press enter to continue.)")
-                            isBalChecker = False
-                            break
-                        else:
-                            input("Returning to the previous menu. (Press enter to continue.)")
-                            isBalChecker = False
-                            break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        break
-
+            except ValueError:
+                userInput = input("Please enter a valid 5-digit account number.\n"
+                "If you are not currently a member, would you like to apply for a $5000 loan? Y or N: ")
+                if userInput.lower() == 'y':
+                    self.loanApply()
+                    isBalChecker = False
+                    break
 
     def loanApply(self):
             firstName = input("Enter your first name: ")
@@ -110,17 +117,27 @@ class Loans:
             amount = input("Please enter the amount you would like to pay: ")
             try:
                 val = float(amount)
-                self.loansHolder.remove(person)
-                person.pay_on(val)
-                self.loansHolder.append(person)
-                break
-            except ValueError:
-                amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or amount: ".format(repay = person.repay))
+                try:
+                    if float(val) > 0:
+                        self.loansHolder.remove(person)
+                        person.pay_on(val)
+                        self.loansHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or N: ".format(repay = person.repay))
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
+            except TypeError:
+                amount = input("Please enter a valid amount.\n You need to repay: ${repay}, or would you like to quit? Y or N: ".format(repay = person.repay))
                 if amount.lower() == "y" or amount.lower() == "":
                     input("Please press enter to continue.")
                     break
 
     def convertToJson(self):
+        sorted(self.loansHolder, key = lambda i: i['acc_num'])
         ccDict = {"loans" : [{"loan_id" : int(loan.acc_num), "firstName" : loan.firstName, "lastName" : loan.lastName, "balance": float(loan.balance), "need_to_pay" : float(loan.repay)} for loan in self.loansHolder]}
 
         with open('data/loans.json', 'w') as outfile:

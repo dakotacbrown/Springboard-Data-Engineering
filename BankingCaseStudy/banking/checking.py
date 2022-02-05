@@ -31,50 +31,57 @@ class Checking:
     def checkBalance(self):
         isBalChecker = True
         while isBalChecker:
-            ccNum = input("Check balance was selected.\n"
+            checkNum = input("Check balance was selected.\n"
             "Please enter your 5-digit checking account number: ")
-            if len(str(ccNum)) != 5:
-                userInput = input("Please enter a valid 5-digit checking account number.\n"
-                "If you are not currently a member, would you like to apply for a checking account? Y or N (If not, press enter.): ")
-                if userInput.lower() == 'y':
-                    self.checkingApply()
-                    isBalChecker = False
-                    break
-                elif userInput.lower() != 'n':
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                    isBalChecker = False
-                    break
-            else:
-                lastName = input("Please enter your last name: ")
-                checker = [cc for cc in self.checkHolder if cc.acc_num == int(ccNum) and cc.lastName.lower() == lastName.lower()]
-                if not checker:
-                    userInput = input("You were not found in our system.\n" 
-                    "Would you like to apply for a checking account? Y or N: ")
+            try:
+                val = int(checkNum)
+                try:
+                    if len(str(val)) == 5:
+                        lastName = input("Please enter your last name: ")
+                        checker = [check for check in self.checkHolder if check.acc_num == int(checkNum) and check.lastName.lower() == lastName.lower()]
+                        if not checker:
+                            userInput = input("You were not found in our system.\n" 
+                            "Would you like to apply for a checking account? Y or N: ")
+                            if userInput.lower() == 'y':
+                                self.checkingApply()
+                                isBalChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                        elif checker:
+                            print("Current checking account balance: ${balance}.".format(balance = checker[0].balance))
+                            userInput = input("Would you like to make a deposit or withdraw? D or W: ")
+                            if userInput.lower() == 'd':
+                                self.deposit(checker[0])
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                            elif userInput.lower() == 'w':
+                                self.withdraw(checker[0])
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    userInput = input("Please enter a valid 5-digit account number.\n"
+                    "If you are not currently a member, would you like to apply for a checking account? Y or N: ")
                     if userInput.lower() == 'y':
                         self.checkingApply()
                         isBalChecker = False
                         break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                elif checker:
-                    print("Current checking account balance: ${balance}.".format(balance = checker[0].balance))
-                    userInput = input("Would you like to make a deposit or withdraw? D or W: ")
-                    if userInput.lower() == 'd':
-                        self.deposit(checker[0])
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                    elif userInput.lower() == 'w':
-                        self.withdraw(checker[0])
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        break
-
+            except ValueError:
+                userInput = input("Please enter a valid 5-digit account number.\n"
+                "If you are not currently a member, would you like to apply for a checking? Y or N: ")
+                if userInput.lower() == 'y':
+                    self.checkingApply()
+                    isBalChecker = False
+                    break
 
     def checkingApply(self):
             firstName = input("Enter your first name: ")
@@ -109,10 +116,19 @@ class Checking:
             amount = input("Please enter the amount you would like to deposit: ")
             try:
                 val = float(amount)
-                self.checkHolder.remove(person)
-                person.deposit(val)
-                self.checkHolder.append(person)
-                break
+                try:
+                    if float(val) > 0:
+                        self.checkHolder.remove(person)
+                        person.deposit(val)
+                        self.checkHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
             except ValueError:
                 amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
                 if amount.lower() == "y" or amount.lower() == "":
@@ -124,10 +140,19 @@ class Checking:
             amount = input("Please enter the amount you would like to withdraw: ")
             try:
                 val = float(amount)
-                self.checkHolder.remove(person)
-                person.withdraw(val)
-                self.checkHolder.append(person)
-                break
+                try:
+                    if float(val) > 0:
+                        self.checkHolder.remove(person)
+                        person.withdraw(val)
+                        self.checkHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
             except ValueError:
                 amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
                 if amount.lower() == "y" or amount.lower() == "":
@@ -136,10 +161,8 @@ class Checking:
 
 
     def convertToJson(self):
+        sorted(self.checkHolder, key = lambda i: i['acc_num'])
         ccDict = {"checking" : [{"account_num" : int(check.acc_num), "firstName" : check.firstName, "lastName" : check.lastName, "balance": float(check.balance)} for check in self.checkHolder]}
 
         with open('data/checking.json', 'w') as outfile:
             json.dump(ccDict, outfile)
-
-check = Checking()
-check.convertToJson()

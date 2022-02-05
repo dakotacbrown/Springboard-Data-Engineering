@@ -31,50 +31,61 @@ class Savings:
     def checkBalance(self):
         isBalChecker = True
         while isBalChecker:
-            ccNum = input("Check balance was selected.\n"
+            savNum = input("Check balance was selected.\n"
             "Please enter your 5-digit savings account number: ")
-            if len(str(ccNum)) != 5:
-                userInput = input("Please enter a valid 5-digit savings account number.\n"
-                "If you are not currently a member, would you like to apply for a savings account? Y or N (If not, press enter.): ")
-                if userInput.lower() == 'y':
-                    self.savingsApply()
-                    isBalChecker = False
-                    break
-                elif userInput.lower() != 'n':
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                    isBalChecker = False
-                    break
-            else:
-                lastName = input("Please enter your last name: ")
-                checker = [cc for cc in self.savingsHolder if cc.acc_num == int(ccNum) and cc.lastName.lower() == lastName.lower()]
-                if not checker:
-                    userInput = input("You were not found in our system.\n" 
-                    "Would you like to apply for a savings account? Y or N: ")
+            try:
+                val = int(savNum)
+                try:
+                    if len(str(val)) == 5:
+                        lastName = input("Please enter your last name: ")
+                        checker = [save for save in self.savingsHolder if save.acc_num == int(savNum) and save.lastName.lower() == lastName.lower()]
+                        if not checker:
+                            userInput = input("You were not found in our system.\n" 
+                            "Would you like to apply for a savings account? Y or N: ")
+                            if userInput.lower() == 'y':
+                                self.savingsApply()
+                                isBalChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                        elif checker:
+                            print("Current savings account balance: ${balance}.".format(balance = checker[0].balance))
+                            userInput = input("Would you like to make a deposit or withdraw? D or W: ")
+                            if userInput.lower() == 'd':
+                                self.deposit(checker[0])
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                            elif userInput.lower() == 'w':
+                                self.withdraw(checker[0])
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                isBalChecker = False
+                                break
+                            else:
+                                input("Returning to the previous menu. (Press enter to continue.)")
+                                break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    userInput = input("Please enter a valid 5-digit account number.\n"
+                    "If you are not currently a member, would you like to apply for a savings account? Y or N: ")
                     if userInput.lower() == 'y':
                         self.savingsApply()
                         isBalChecker = False
                         break
                     else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
                         break
-                elif checker:
-                    print("Current savings account balance: ${balance}.".format(balance = checker[0].balance))
-                    userInput = input("Would you like to make a deposit or withdraw? D or W: ")
-                    if userInput.lower() == 'd':
-                        self.deposit(checker[0])
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                    elif userInput.lower() == 'w':
-                        self.withdraw(checker[0])
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        isBalChecker = False
-                        break
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                        break
-
+            except ValueError:
+                userInput = input("Please enter a valid 5-digit account number.\n"
+                "If you are not currently a member, would you like to apply for a credit card? Y or N: ")
+                if userInput.lower() == 'y':
+                    self.savingsApply()
+                    isBalChecker = False
+                    break
+                else:
+                    break
 
     def savingsApply(self):
             firstName = input("Enter your first name: ")
@@ -109,10 +120,19 @@ class Savings:
             amount = input("Please enter the amount you would like to deposit: ")
             try:
                 val = float(amount)
-                self.savingsHolder.remove(person)
-                person.deposit(val)
-                self.savingsHolder.append(person)
-                break
+                try:
+                    if float(val) > 0:
+                        self.savingsHolder.remove(person)
+                        person.deposit(val)
+                        self.savingsHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
             except ValueError:
                 amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
                 if amount.lower() == "y" or amount.lower() == "":
@@ -124,10 +144,19 @@ class Savings:
             amount = input("Please enter the amount you would like to withdraw: ")
             try:
                 val = float(amount)
-                self.savingsHolder.remove(person)
-                person.withdraw(val)
-                self.savingsHolder.append(person)
-                break
+                try:
+                    if float(val) > 0:
+                        self.savingsHolder.remove(person)
+                        person.withdraw(val)
+                        self.savingsHolder.append(person)
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
+                    if amount.lower() == "y" or amount.lower() == "":
+                        input("Please press enter to continue.")
+                        break
             except ValueError:
                 amount = input("Please enter a valid amount, or would you like to quit? Y or N: ")
                 if amount.lower() == "y" or amount.lower() == "":
@@ -135,6 +164,7 @@ class Savings:
                     break
 
     def convertToJson(self):
+        sorted(self.savingsHolder, key = lambda i: i['acc_num'])
         ccDict = {"savings" : [{"account_num" : int(saving.acc_num), "firstName" : saving.firstName, "lastName" : saving.lastName, "balance": float(saving.balance)} for saving in self.savingsHolder]}
 
         with open('data/savings.json', 'w') as outfile:
