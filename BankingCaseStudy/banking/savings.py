@@ -4,6 +4,17 @@ import json
 
 
 class Savings:
+    """
+    Savings class that can create an account, view balance, deposit, and withdraw money.
+
+    Attributes
+    --------
+    df_savings: tuple
+        Holds a tuple of pandas data frames that was parsed from json data.
+
+    savingsHolder: list
+        Holds a list of Accounts class objects.
+    """
 
     def __init__(self):
         self.df_savings = json_parser('data/savings.json')
@@ -11,6 +22,7 @@ class Savings:
 
 
     def savingsChecker(self):
+        """Sends user to different options in the list."""
         isCcChecker = True
         while isCcChecker:
             userInput = input("Check savings account was selected.\n"
@@ -29,6 +41,7 @@ class Savings:
                 self.savingsApply()
 
     def checkBalance(self):
+        """Checks the balance of a user's account."""
         isBalChecker = True
         while isBalChecker:
             savNum = input("Check balance was selected.\n"
@@ -88,34 +101,44 @@ class Savings:
                     break
 
     def savingsApply(self):
-            firstName = input("Enter your first name: ")
-            lastName = input("Enter your last name: ")
-            checker = [cc for cc in self.savingsHolder if cc.firstName.lower() == firstName.lower() and cc.lastName.lower() == lastName.lower()]
-            if checker:
-                print("Hello {firstName} {lastName}, you already have a savings account with us.\n Current balance: ${balance}."
-                .format(firstName = firstName, lastName = lastName, balance = checker[0].balance))
-                userInput = input("Would you like to make a deposit or withdraw? D or W: ")
-                if userInput.lower() == 'd':
-                    self.deposit(checker[0])
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                elif userInput.lower() == 'w':
-                    self.withdraw(checker[0])
-                    input("Returning to the previous menu. (Press enter to continue.)")
-                else:
-                    input("Returning to the previous menu. (Press enter to continue.)")
+        """Allows user to create an account."""
+        firstName = input("Enter your first name: ")
+        lastName = input("Enter your last name: ")
+        checker = [cc for cc in self.savingsHolder if cc.firstName.lower() == firstName.lower() and cc.lastName.lower() == lastName.lower()]
+        if checker:
+            print("Hello {firstName} {lastName}, you already have a savings account with us.\n Current balance: ${balance}."
+            .format(firstName = firstName, lastName = lastName, balance = checker[0].balance))
+            userInput = input("Would you like to make a deposit or withdraw? D or W (Press enter to exit.): ")
+            if userInput.lower() == 'd':
+                self.deposit(checker[0])
+                input("Returning to the previous menu. (Press enter to continue.)")
+            elif userInput.lower() == 'w':
+                self.withdraw(checker[0])
+                input("Returning to the previous menu. (Press enter to continue.)")
             else:
-                acc_type = "savings"
-                savingsNum = int(self.savingsHolder[-1].acc_num) + 1
-                balance = 0.00
-                self.savingsHolder.append(Accounts(acc_type, int(savingsNum), firstName, lastName, balance))
-                print("Thank you {firstName} {lastName}. You account has been created!\n" 
-                "Please write down the information below for your records.\n"
-                "Savings Account Number: {savingsNum}\n"
-                "Savings Account Balance: ${balance}.".format(firstName = firstName, lastName = lastName, savingsNum = savingsNum, balance = balance)
-                )
-                input("Please press enter to continue.")
+                input("Returning to the previous menu. (Press enter to continue.)")
+        else:
+            acc_type = "savings"
+            savingsNum = int(self.savingsHolder[-1].acc_num) + 1
+            balance = 0.00
+            self.savingsHolder.append(Accounts(acc_type, int(savingsNum), firstName, lastName, balance))
+            print("Thank you {firstName} {lastName}. You account has been created!\n" 
+            "Please write down the information below for your records.\n"
+            "Savings Account Number: {savingsNum}\n"
+            "Savings Account Balance: ${balance}.".format(firstName = firstName, lastName = lastName, savingsNum = savingsNum, balance = balance)
+            )
+            input("Please press enter to continue.")
+                
 
     def deposit(self, person):
+        """
+        Allows user to deposit money into their account.
+
+        Parameters
+        ----------
+        person: list
+            Holds the person making the deposit from their account.
+        """
         while True:
             amount = input("Please enter the amount you would like to deposit: ")
             try:
@@ -125,6 +148,7 @@ class Savings:
                         self.savingsHolder.remove(person)
                         person.deposit(val)
                         self.savingsHolder.append(person)
+                        sorted(self.savingsHolder, key = lambda i: i.acc_num)
                         break
                     else:
                         raise ValueError()
@@ -140,6 +164,14 @@ class Savings:
                     break
 
     def withdraw(self, person):
+        """
+        Allows user to withdraw money into their account.
+
+        Parameters
+        ----------
+        person: list
+            Holds the person making the withdrawl from their account.
+        """
         while True:
             amount = input("Please enter the amount you would like to withdraw: ")
             try:
@@ -149,6 +181,7 @@ class Savings:
                         self.savingsHolder.remove(person)
                         person.withdraw(val)
                         self.savingsHolder.append(person)
+                        sorted(self.savingsHolder, key = lambda i: i.acc_num)
                         break
                     else:
                         raise ValueError()
@@ -164,7 +197,8 @@ class Savings:
                     break
 
     def convertToJson(self):
-        sorted(self.savingsHolder, key = lambda i: i['acc_num'])
+        """Sorts the users and updates the json file they came from."""
+        sorted(self.savingsHolder, key = lambda i: i.acc_num)
         ccDict = {"savings" : [{"account_num" : int(saving.acc_num), "firstName" : saving.firstName, "lastName" : saving.lastName, "balance": float(saving.balance)} for saving in self.savingsHolder]}
 
         with open('data/savings.json', 'w') as outfile:

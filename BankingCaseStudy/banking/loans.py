@@ -4,6 +4,17 @@ import json
 
 
 class Loans:
+    """
+    Loans class that can create an account, view balance, and pay statement balance.
+
+    Attributes
+    --------
+    df_loans: tuple
+        Holds a tuple of pandas data frames that was parsed from json data.
+
+    loansHolder: list
+        Holds a list of Services class objects.
+    """
 
     def __init__(self):
         self.df_loans = json_parser('data/loans.json')
@@ -11,6 +22,7 @@ class Loans:
 
 
     def loansChecker(self):
+        """Sends user to different options in the list."""
         isLoansChecker = True
         while isLoansChecker:
             userInput = input("Check loans was selected.\n"
@@ -29,6 +41,7 @@ class Loans:
                 self.loanApply()
 
     def checkBalance(self):
+        """Checks the repayment balance of a user's account."""
         isBalChecker = True
         while isBalChecker:
             loanNum = input("Check statement was selected.\n"
@@ -84,35 +97,44 @@ class Loans:
                     break
 
     def loanApply(self):
-            firstName = input("Enter your first name: ")
-            lastName = input("Enter your last name: ")
-            checker = [cc for cc in self.loansHolder if cc.firstName.lower() == firstName.lower() and cc.lastName.lower() == lastName.lower()]
-            if checker:
-                print("Hello {firstName} {lastName}, you already have a loan with us.\n Current balance: ${balance}."
-                .format(firstName = firstName, lastName = lastName, balance = checker[0].repay))
-                if checker[0].repay > 0.0:
-                    userInput = input("Would you like to pay on your balance? Y or N: ")
-                    if userInput.lower() == 'y':
-                        self.payLoan(checker[0])
-                        input("Returning to the previous menu. (Press enter to continue.)")
-                    else:
-                        input("Returning to the previous menu. (Press enter to continue.)")
+        """Allows user to apply for a loan."""
+        firstName = input("Enter your first name: ")
+        lastName = input("Enter your last name: ")
+        checker = [cc for cc in self.loansHolder if cc.firstName.lower() == firstName.lower() and cc.lastName.lower() == lastName.lower()]
+        if checker:
+            print("Hello {firstName} {lastName}, you already have a loan with us.\n Current balance: ${balance}."
+            .format(firstName = firstName, lastName = lastName, balance = checker[0].repay))
+            if checker[0].repay > 0.0:
+                userInput = input("Would you like to pay on your balance? Y or N: ")
+                if userInput.lower() == 'y':
+                    self.payLoan(checker[0])
+                    input("Returning to the previous menu. (Press enter to continue.)")
                 else:
                     input("Returning to the previous menu. (Press enter to continue.)")
             else:
-                acc_type = "loans"
-                loanNum = int(self.loansHolder[-1].acc_num) + 1
-                loanLimit = 5000.00
-                need_to_pay = 5000.00
-                self.loansHolder.append(Services(acc_type, loanNum, firstName, lastName, loanLimit, need_to_pay))
-                print("Thank you {firstName} {lastName}. You have been approved!\n" 
-                "Please write down the information below for your records.\n"
-                "Loan Account Number: ${loanNum}\n"
-                "Loan Amount: ${loanLimit}.".format(firstName = firstName, lastName = lastName, loanNum = loanNum, loanLimit = loanLimit)
-                )
-                input("Please press enter to continue.")
+                input("Returning to the previous menu. (Press enter to continue.)")
+        else:
+            acc_type = "loans"
+            loanNum = int(self.loansHolder[-1].acc_num) + 1
+            loanLimit = 5000.00
+            need_to_pay = 5000.00
+            self.loansHolder.append(Services(acc_type, loanNum, firstName, lastName, loanLimit, need_to_pay))
+            print("Thank you {firstName} {lastName}. You have been approved!\n" 
+            "Please write down the information below for your records.\n"
+            "Loan Account Number: ${loanNum}\n"
+            "Loan Amount: ${loanLimit}.".format(firstName = firstName, lastName = lastName, loanNum = loanNum, loanLimit = loanLimit)
+            )
+            input("Please press enter to continue.")
 
     def payLoan(self, person):
+        """
+        Allows user to make payment on their loan.
+
+        Parameters
+        ----------
+        person: list
+            Holds the person paying their loan.
+        """
         while True:
             amount = input("Please enter the amount you would like to pay: ")
             try:
@@ -122,6 +144,7 @@ class Loans:
                         self.loansHolder.remove(person)
                         person.pay_on(val)
                         self.loansHolder.append(person)
+                        sorted(self.loansHolder, key = lambda i: i.acc_num)
                         break
                     else:
                         raise ValueError()
@@ -137,7 +160,8 @@ class Loans:
                     break
 
     def convertToJson(self):
-        sorted(self.loansHolder, key = lambda i: i['acc_num'])
+        """Sorts the users and updates the json file they came from."""
+        sorted(self.loansHolder, key = lambda i: i.acc_num)
         ccDict = {"loans" : [{"loan_id" : int(loan.acc_num), "firstName" : loan.firstName, "lastName" : loan.lastName, "balance": float(loan.balance), "need_to_pay" : float(loan.repay)} for loan in self.loansHolder]}
 
         with open('data/loans.json', 'w') as outfile:
