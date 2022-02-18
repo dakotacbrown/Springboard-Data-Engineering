@@ -1,0 +1,263 @@
+ """
+        <Code Label="MDG_0000000010" DisplaySequence="30" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/10">
+        <Display>Median availability of selected generic medicines (%) - Public</Display>
+        </Code>
+
+        <Code Label="MDG_0000000011" DisplaySequence="40" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/11">
+        <Display>Median consumer price ratio of selected generic medicines - Public</Display>
+        </Code>
+
+		<Code Label="WHS9_86" DisplaySequence="10" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/113">
+		<Display>Population (in thousands) total</Display>
+		</Code>
+
+		<Code Label="WHS9_88" DisplaySequence="40" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/116">
+		<Display>Population median age (years)</Display>
+		</Code>
+
+		<Code Label="WHS9_89" DisplaySequence="20" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/118">
+		<Display>Population proportion under 15 (%)</Display>
+		</Code>
+
+		<Code Label="WHS9_90" DisplaySequence="60" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/115">
+		<Display>Population living on <$1 (PPP int. $) a day (%)</Display>
+		</Code>
+
+		<Code Label="WHS9_92" DisplaySequence="30" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/117">
+		<Display>Population proportion over 60 (%)</Display>
+		</Code>
+
+		<Code Label="WHS9_93" DisplaySequence="0" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/94">
+		<Display>Gross national income per capita (PPP int. $)</Display>
+		</Code>
+
+		<Code Label="WHS9_96" DisplaySequence="50" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/114">
+		<Display>Population living in urban areas (%)</Display>
+		</Code>
+
+		<Code Label="WHS9_97" DisplaySequence="40" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/79">
+		<Display>Annual population growth rate (%)</Display>
+		</Code>
+
+        <Code Label="WHS6_101" DisplaySequence="10" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/10">
+        <Display>Median availability of selected generic medicines (%) - Private</Display>
+        </Code>
+
+        <Code Label="WHS7_103" DisplaySequence="80" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/120">
+        <Display>Private prepaid plans as a percentage of private expenditure on health</Display>
+        </Code>
+
+        <Code Label="WHS6_116" DisplaySequence="20" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/11">
+        <Display>Median consumer price ratio of selected generic medicines - Private</Display>
+        </Code>
+
+        <Code Label="WHS7_120" DisplaySequence="50" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/91">
+        <Display>External resources for health as a percentage of total expenditure on health</Display>
+        </Code>
+
+        <Code Label="WHS7_134" DisplaySequence="60" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/121">
+        <Display>Social security expenditure on health as a percentage of general government expenditure on health</Display>
+        </Code>
+
+
+        <Code Label="WHS7_139" DisplaySequence="70" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/107">
+        <Display>Health financing</Display>
+        <Display>Out-of-pocket expenditure as a percentage of private expenditure on health</Display>
+        </Code>
+
+        <Code Label="WHS7_143" DisplaySequence="10" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/122">
+        <Display>Total expenditure on health as a percentage of gross domestic product</Display>
+        </Code>
+
+        <Code Label="WHS7_150" DisplaySequence="75" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4445">
+        <Display>Out-of-pocket expenditure as a percentage of total expenditure on health</Display>
+        </Code>
+
+        <Code Label="WHS4_154" DisplaySequence="20" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/80">
+        <Display>Antenatal care coverage - at least four visits (%)</Display>
+        </Code>
+
+        <Code Label="WHS7_156" DisplaySequence="90" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/111">
+        <Display>Per capita total expenditure on health at average exchange rate (US$)</Display>
+        </Code>
+
+        <Code Label="RS_238" DisplaySequence="0" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/238">
+        <Display>Existence of a universal access telephone number for pre-hospital care</Display>
+        </Code>
+
+        <Code Label="RS_576" DisplaySequence="12" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/3355">
+        <Display>Gross national income per capita (Atlas method)</Display>
+        </Code>
+
+        <Code Label="NHAGGHEGDP" DisplaySequence="0">
+        <Display>General government expenditure on health as percentage of gross domestic product</Display>
+        </Code>
+
+        <Code Label="NHAOOPSTHE" DisplaySequence="0">
+        <Display>Out-of-Pocket expenditure on health as percentage of total health expenditure??</Display>
+        </Code>
+
+        <Code Label="NHAPREPAIDTHE" DisplaySequence="0">
+        <Display>Prepaid plans as percentage of total health expenditure?</Display>
+        </Code>
+
+        <Code Label="GOE_Q001" DisplaySequence="10" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4760">
+        <Display>National universal health coverage strategy</Display>
+        </Code>
+
+        <Code Label="UHC_DATA_AVAIL_CODE" DisplaySequence="10000" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4832">
+        <Display>Data availability for UHC index of service coverage (ranking)</Display>
+        </Code>
+
+        <Code Label="UHC_INDEX_REPORTED" DisplaySequence="30" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4834">
+        <Display>UHC Service Coverage Index (SDG 3.8.1)</Display>
+        </Code>
+
+        <Code Label="UHC_INDEX_ACTUAL" DisplaySequence="10">
+        <Display>Index of Service Coverage (Actual)</Display>
+        </Code>
+
+        <Code Label="UHC_AVAILABILITY_SCORE" DisplaySequence="20" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4833">
+        <Display>Primary data availability for UHC Service Coverage Index (SDG 3.8.1) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_10_POP" DisplaySequence="220" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4844">
+        <Display>Population with household spending on health greater than 10% of total household budget (SDG 3.8.2, reported data) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_25_POP" DisplaySequence="230" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4845">
+        <Display>Population with household spending on health greater than 25% of total household budget (SDG 3.8.2, reported data) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP190_POP" DisplaySequence="50" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4838">
+        <Display>Population pushed below the $1.90 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP310_POP" DisplaySequence="80" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4841">
+        <Display>Population pushed below the $3.20 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_ESTIMATE_AVAILABLE" DisplaySequence="10" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4844">
+        <Display>Availability of estimates on large health expenditures as a share of total expenditure or income</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMPOV_ESTIMATE_AVAILABLE" DisplaySequence="40" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4838">
+        <Display>Availability of estimates on impoverishment due to out-of-pocket health expenditures</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PG_190_STD" DisplaySequence="60" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4839">
+        <Display>Increase in poverty gap due to household health expenditures, expressed as a proportion of the $1.90 a day poverty line (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PG_190" DisplaySequence="70" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4840">
+        <Display>Increase in poverty gap due to household health expenditures at the $1.90 a day poverty line, in cents of international dollars</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PG_310_STD" DisplaySequence="90" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4842">
+        <Display>Increase in poverty gap due to household health expenditures, expressed as a proportion of the $3.20 a day poverty line (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PG_310" DisplaySequence="100" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4843">
+        <Display>Increase in poverty gap due to household health expenditures at the $3.20 a day poverty line, in cents of international dollars</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_10_LEVEL_SH" DisplaySequence="130" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4844">
+        <Display>Population with household spending on health greater than 10% of total household budget (SDG 3.8.2, estimated data) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_10_LEVEL_MILLION" DisplaySequence="140" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4844">
+        <Display>Population with household spending on health greater than 10% of total household budget (SDG 3.8.2, estimated data) (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_25_LEVEL_SH" DisplaySequence="150" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4845">
+        <Display>Population with household spending on health greater than 25% of total household budget (SDG 3.8.2, estimated data) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_TOT_25_LEVEL_MILLION" DisplaySequence="160" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4845">
+        <Display>Population with household spending on health greater than 25% of total household budget (SDG 3.8.2, estimated data) (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_190_LEVEL_SH" DisplaySequence="170" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4838">
+        <Display>Total population pushed below the $1.90 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_190_LEVEL_MILLION" DisplaySequence="180" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4838">
+        <Display>Total population pushed below the $1.90 a day poverty line by household health expenditures (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_310_LEVEL_SH" DisplaySequence="190" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4841">
+        <Display>Total population pushed below the $3.20 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_310_LEVEL_MILLION" DisplaySequence="200" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4841">
+        <Display>Total population pushed below the $3.20 a day poverty line by household health expenditures (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_REL_LEVEL_SH" DisplaySequence="210" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4892">
+        <Display>Total population pushed below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NP_REL_LEVEL_MILLION" DisplaySequence="220" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4892">
+        <Display>Total population pushed below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_CATA_CTPFHU_40_HH" DisplaySequence="230" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4989">
+        <Display>Households with out-of-pocket payments greater than 40% of capacity to pay for health care (food, housing and utilities approach - developed by WHO/Europe) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_BNLFHU_TOT_HH" DisplaySequence="240" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4990">
+        <Display>Households pushed below or further below a relative poverty line (reflecting basic needs: food, housing, utilities) by out-of-pocket payments (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_BNLFHU_P_HH" DisplaySequence="250" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4990">
+        <Display>Households impoverished by out-of-pocket payments (relative poverty line reflecting basic needs: food, housing, utilities) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_BNLFHU_FURIMP_HH" DisplaySequence="260" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4990">
+        <Display>Households further impoverished by out-of-pocket payments (relative poverty line reflecting basic needs: food, housing, utilities) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_NPRELPL_POP" DisplaySequence="270" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4892">
+        <Display>Population pushed below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PG_RELPL_STD" DisplaySequence="280" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/4891">
+        <Display>Increase in poverty gap due to household health expenditures, expressed as a proportion of a relative poverty line (60% of median daily per capita consumption or income) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P190_POP" DisplaySequence="290" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5666">
+        <Display>Population pushed further below the $1.90 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P310_POP" DisplaySequence="300" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5667">
+        <Display>Population pushed further below the $3.20 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PRELPL_POP" DisplaySequence="310" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5665">
+        <Display>Population pushed further below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P190_LEVEL_SH" DisplaySequence="320" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5666">
+        <Display>Total population pushed further below the $1.90 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P190_LEVEL_MILLION" DisplaySequence="330" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5666">
+        <Display>Total population pushed further below the $1.90 a day poverty line by household health expenditures (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P310_LEVEL_SH" DisplaySequence="340" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5667">
+        <Display>Total population pushed further below the $3.20 a day poverty line by household health expenditures (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_P310_LEVEL_MILLION" DisplaySequence="350" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5667">
+        <Display>Total population pushed further below the $3.20 a day poverty line by household health expenditures (millions)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PREL_LEVEL_SH" DisplaySequence="360" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5665">
+        <Display>Total population pushed further below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (%)</Display>
+        </Code>
+
+        <Code Label="FINPROTECTION_IMP_PREL_LEVEL_MILLION" DisplaySequence="370" URL="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/5665">
+        <Display>Total population pushed further below a relative poverty line by household health expenditures (60% of median daily per capita consumption or income) (millions)</Display>
+        </Code>
+        """
