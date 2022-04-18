@@ -1,0 +1,19 @@
+Indicator Name,Indicator Code
+Population growth (annual %),SP.POP.GROW
+Coverage of social insurance programs (% of population),per_si_allsi.cov_pop_tot
+Current health expenditure (% of GDP),SH.XPD.CHEX.GD.ZS
+Current health expenditure per capita (current US$),SH.XPD.CHEX.PC.CD
+Domestic general government health expenditure (% of current health expenditure),SH.XPD.GHED.CH.ZS
+Domestic general government health expenditure (% of GDP),SH.XPD.GHED.GD.ZS
+Domestic general government health expenditure per capita (current US$),SH.XPD.GHED.PC.CD
+Domestic private health expenditure per capita (current US$),SH.XPD.PVTD.PC.CD
+GDP (current US$),NY.GDP.MKTP.CD
+GDP per capita (current US$),NY.GDP.PCAP.CD
+"Inflation, GDP deflator (annual %)",NY.GDP.DEFL.KD.ZG
+Proportion of population spending more than 10% of household consumption or income on out-of-pocket health care expenditure (%),SH.UHC.OOPC.10.ZS
+Proportion of population spending more than 25% of household consumption or income on out-of-pocket health care expenditure (%),SH.UHC.OOPC.25.ZS
+Out-of-pocket expenditure per capita (current US$),SH.XPD.OOPC.PC.CD
+Proportion of population pushed below the $1.90 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure (%),SH.UHC.NOP1.ZS
+Proportion of population pushed below the $3.20 ($ 2011 PPP) poverty line by out-of-pocket health care expenditure (%),SH.UHC.NOP2.ZS
+"Physicians (per 1,000 people)",SH.MED.PHYS.ZS
+"Population, total",SP.POP.TOTL
