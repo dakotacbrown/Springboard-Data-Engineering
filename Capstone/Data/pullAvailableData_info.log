@@ -1,46 +1,47 @@
-2022-04-18 00:33:32,125INFOPerforming ETL
-2022-04-18 00:33:32,126INFOETL Begin
-2022-04-18 00:33:32,126INFOBegin Extract
-2022-04-18 00:33:32,888INFOExtracted Successfully
-2022-04-18 00:33:32,970INFOExtracted Successfully
-2022-04-18 00:33:32,985INFOExtracted Successfully
-2022-04-18 00:33:33,004INFOExtracted Successfully
-2022-04-18 00:33:33,016INFOExtracted Successfully
-2022-04-18 00:33:33,030INFOExtracted Successfully
-2022-04-18 00:33:33,042INFOExtracted Successfully
-2022-04-18 00:33:33,042INFOExtracted Successfully
-2022-04-18 00:33:33,063INFOExtracted Successfully
-2022-04-18 00:33:33,126INFOExtracted Successfully
-2022-04-18 00:33:33,754INFOExtracted Successfully
-2022-04-18 00:33:33,756INFOExtracted Successfully
-2022-04-18 00:33:33,756INFOExtracted Successfully
-2022-04-18 00:33:33,763INFOExtracted Successfully
-2022-04-18 00:33:33,784INFOExtracted Successfully
-2022-04-18 00:33:33,786INFOExtracted Successfully
-2022-04-18 00:33:33,842INFOExtracted Successfully
-2022-04-18 00:33:33,853INFOExtracted Successfully
-2022-04-18 00:33:33,853INFOEnd Extract
-2022-04-18 00:33:33,854INFOBegin Transform
-2022-04-18 00:33:33,913INFOcsv to pd successful
-2022-04-18 00:33:33,913INFOcsv to pd successful
-2022-04-18 00:33:33,914INFOcsv to pd successful
-2022-04-18 00:33:33,917INFOcsv to pd successful
-2022-04-18 00:33:33,919INFOcsv to pd successful
-2022-04-18 00:33:33,925INFOcsv to pd successful
-2022-04-18 00:33:33,960INFOcsv to pd successful
-2022-04-18 00:33:33,962INFOcsv to pd successful
-2022-04-18 00:33:33,964INFOcsv to pd successful
-2022-04-18 00:33:33,969INFOcsv to pd successful
-2022-04-18 00:33:33,972INFOcsv to pd successful
-2022-04-18 00:33:33,974INFOcsv to pd successful
-2022-04-18 00:33:33,981INFOcsv to pd successful
-2022-04-18 00:33:33,983INFOcsv to pd successful
-2022-04-18 00:33:33,984INFOcsv to pd successful
-2022-04-18 00:33:33,986INFOcsv to pd successful
-2022-04-18 00:33:33,992INFOcsv to pd successful
-2022-04-18 00:33:33,995INFOcsv to pd successful
-2022-04-18 00:33:33,996INFODf_country
-2022-04-18 00:33:33,996INFO<bound method DataFrame.info of                     Country Name Country Code
+2022-04-23 07:57:33,077 | __main__ | INFO | Performing ETL
+2022-04-23 07:57:33,078 | __main__ | INFO | ETL Begin
+2022-04-23 07:57:33,078 | __main__ | INFO | Begin Extract
+2022-04-23 07:57:33,870 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:33,910 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:33,999 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,024 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,036 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,088 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,100 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,115 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,129 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,189 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,757 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,758 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,761 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,769 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,803 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,836 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,838 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,847 | __main__ | INFO | Extracted Successfully
+2022-04-23 07:57:34,847 | __main__ | INFO | End Extract
+2022-04-23 07:57:34,847 | __main__ | INFO | Begin Transform
+2022-04-23 07:57:34,850 | __main__ | INFO | Begin csv to pd
+2022-04-23 07:57:34,913 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,915 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,915 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,921 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,923 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,931 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,933 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,934 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,942 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,965 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,973 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,975 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,976 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,978 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,982 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,985 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,986 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,989 | __main__ | INFO | csv to pd successful
+2022-04-23 07:57:34,991 | __main__ | INFO | Df_country
+2022-04-23 07:57:34,991 | __main__ | INFO | <bound method DataFrame.info of                     Country Name Country Code
 0                          Aruba          ABW
 1    Africa Eastern and Southern          AFE
 2                    Afghanistan          AFG
@@ -54,8 +55,8 @@
 265                     Zimbabwe          ZWE
 
 [266 rows x 2 columns]>
-2022-04-18 00:33:34,017INFODf_indicator
-2022-04-18 00:33:34,017INFO<bound method DataFrame.info of                                       Indicator Name            Indicator Code
+2022-04-23 07:57:35,012 | __main__ | INFO | Df_indicator
+2022-04-23 07:57:35,013 | __main__ | INFO | <bound method DataFrame.info of                                       Indicator Name            Indicator Code
 0                       Population growth (annual %)               SP.POP.GROW
 0  Coverage of social insurance programs (% of po...  per_si_allsi.cov_pop_tot
 0              Current health expenditure (% of GDP)         SH.XPD.CHEX.GD.ZS
@@ -74,8 +75,8 @@
 0  Proportion of population pushed below the $3.2...            SH.UHC.NOP2.ZS
 0                      Physicians (per 1,000 people)            SH.MED.PHYS.ZS
 0                                  Population, total               SP.POP.TOTL>
-2022-04-18 00:33:34,025INFODf_year
-2022-04-18 00:33:34,025INFO<bound method DataFrame.info of     Year
+2022-04-23 07:57:35,022 | __main__ | INFO | Df_year
+2022-04-23 07:57:35,022 | __main__ | INFO | <bound method DataFrame.info of     Year
 0   1960
 1   1961
 2   1962
@@ -89,8 +90,8 @@
 61  2021
 
 [62 rows x 1 columns]>
-2022-04-18 00:33:34,042INFODf_fact_table
-2022-04-18 00:33:34,042INFO<bound method DataFrame.info of     Country Code Indicator Code          1960          1961          1962          1963  ...          2016          2017          2018          2019          2020        2021
+2022-04-23 07:57:35,038 | __main__ | INFO | Df_fact_table
+2022-04-23 07:57:35,039 | __main__ | INFO | <bound method DataFrame.info of     Country Code Indicator Code          1960          1961          1962          1963  ...          2016          2017          2018          2019          2020        2021
 0            ABW    SP.POP.GROW           NaN  2.236462e+00  1.432843e+00  8.235018e-01  ...  5.028595e-01  4.718740e-01  4.592659e-01  4.374147e-01  4.280169e-01         NaN
 1            AFE    SP.POP.GROW           NaN  2.539822e+00  2.575182e+00  2.606839e+00  ...  2.712218e+00  2.690902e+00  2.665620e+00  2.636666e+00  2.605427e+00         NaN
 2            AFG    SP.POP.GROW           NaN  1.898499e+00  1.965805e+00  2.029830e+00  ...  2.778035e+00  2.547833e+00  2.384309e+00  2.313073e+00  2.303812e+00         NaN
@@ -104,7 +105,7 @@
 265          ZWE    SP.POP.TOTL  3.776679e+06  3.905038e+06  4.039209e+06  4.178726e+06  ...  1.403034e+07  1.423660e+07  1.443881e+07  1.464547e+07  1.486293e+07  15092000.0
 
 [4788 rows x 64 columns]>
-2022-04-18 00:33:34,175INFOEnd Transform
-2022-04-18 00:33:34,176INFOBegin Load
-2022-04-18 00:33:34,352INFOEnd Load
-2022-04-18 00:33:34,354INFOETL End
+2022-04-23 07:57:35,152 | __main__ | INFO | End Transform
+2022-04-23 07:57:35,152 | __main__ | INFO | Begin Load
+2022-04-23 07:57:35,326 | __main__ | INFO | End Load
+2022-04-23 07:57:35,328 | __main__ | INFO | ETL End

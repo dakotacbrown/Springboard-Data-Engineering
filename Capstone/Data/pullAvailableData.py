@@ -7,12 +7,17 @@ from io import BytesIO
 from zipfile import ZipFile
 from urllib.request import urlopen
 
+
+"""
+Logging for the whole file
+Acknowledgement: https://medium.com/nerd-for-tech/logging-with-logging-in-python-d3d8eb9a155a
+                https://www.programcreek.com/python/example/192/logging.Formatter
+"""
 current_filename = os.path.basename(__file__).rsplit('.', 1)[0]
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-attributes_list = ['asctime', 'levelname', 'message'] 
-formatter = logging.Formatter('%(' + ((')s' + '%(').join(attributes_list)) + ')s')
+formatter = logging.Formatter('%(asctime)s | %(name)s | %(levelname)s | %(message)s')
 
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.DEBUG)
@@ -157,7 +162,7 @@ def main():
         if "__pycache__" in directories[-1]:
             del directories[-1]
         del directories[0]
-        logger.debug('Begin csv to pd')
+        logger.info('Begin csv to pd')
         pds = list(executor2.map(panda_read_csv, directories))
 
     transform_load(pds)
