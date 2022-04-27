@@ -47,6 +47,7 @@ def extract(info):
     Parameters
     ----------
     info: dictionary of data files with the indicator name as the keys and url as values.
+    Acknowledgement: https://stackoverflow.com/questions/3451111/unzipping-files-in-python
     """
     try:
         with urlopen(info[1]) as zipFile:
