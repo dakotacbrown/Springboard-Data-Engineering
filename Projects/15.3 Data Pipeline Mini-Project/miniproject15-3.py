@@ -4,23 +4,39 @@ import csv
 def get_db_connection():
     connection = None
     try:
-        connection = mysql.connector.connect(user='<username>',
-        password='<password>',
-        host='<host>',
-        port='3306',
-        database='<database>')
+        connection = mysql.connector.connect(
+            user='<username>',
+            password='<password>',
+            host='<host>',
+            port='3306',
+            database='<database>'
+        )
     except Exception as error:
-            print("Error while connecting to database for job tracker", error)
-    return connection
+        print("Error while connecting to database for job tracker", error)
+    finally:
+        return connection
 
 def load_third_party(connection, file_path_csv):
     cursor = connection.cursor()
     # [Iterate through the CSV file and execute insert statement]
-    cursor.execute("CREATE TABLE ticket_sales(ticket_id INT, trans_date DATE, event_id INT, event_name VARCHAR(50), event_date DATE, event_type VARCHAR(10), event_city VARCHAR(20), customer_id INT, price DECIMAL, num_tickets INT)")
+    cursor.execute("""
+    CREATE TABLE ticket_sales(
+        ticket_id INT,
+        trans_date DATE,
+        event_id INT,
+        event_name VARCHAR(50),
+        event_date DATE,
+        event_type VARCHAR(10),
+        event_city VARCHAR(20),
+        customer_id INT,
+        price DECIMAL,
+        num_tickets INT
+    )
+    """)
     with open(file_path_csv, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
-            sql = 'INSERT INTO ticket_sales VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+            sql = "INSERT INTO ticket_sales VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
             cursor.execute(sql, row)
     connection.commit()
     cursor.close()
@@ -40,10 +56,11 @@ def main():
     connection = get_db_connection()
     load_third_party(connection, file_path_csv)
     records = query_popular_tickets(connection)
-    with open('output.txt', 'w') as f:
+    with open("output.txt", "w") as f:
         f.write("Here are the most popular tickets in the past month:\n")
         for row in records:
             f.write("- " + row[3] + "\n")
+    connection.close()
 
 if __name__ == '__main__':
     main()
