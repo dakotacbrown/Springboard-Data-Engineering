@@ -1,0 +1,22 @@
+# This should create a Python virtual environment called venv:
+python3 -m venv venv
+
+# Next we need to activate it so we can use it. 
+# You can read the details of how to do this for different
+# systems here:
+# https://docs.python.org/3/library/venv.html
+
+# For Mac/Linux you can use:
+source venv/bin/activate
+
+# For Powershell:
+# venv\Scripts\Activate.ps1
+
+# For cmd.exe:
+# venv\Scripts\activate.bat
+
+# Then install the boto3 package
+pip install boto3
+
+# And open up the Python interpreter
+python3
