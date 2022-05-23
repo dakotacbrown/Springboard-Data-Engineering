@@ -31,7 +31,7 @@ class AutoBreakdown(MRJob):
                 yield [key, v]
     
     def mapper_2(self, _, line):
-        _, make, year = line.split(',')
+        _, make, year = line
         yield [make, year], 1
 
     
