@@ -2,11 +2,23 @@ from mrjob.job import MRJob
 from mrjob.step import MRStep
 
 class AutoBreakdown(MRJob):
-    def mapper(self, _, line):
-        incident_id, incident_type, vin_number, make, model, year, incident_date, description = line.split(',')
+    def steps(self):
+        return [
+            MRStep(
+                mapper=self.mapper_1,
+                reducer=self.reducer_1
+            ),
+            MRStep(
+                mapper=self.mapper_2,
+                reducer=self.reducer_2
+            )
+        ]
+
+    def mapper_1(self, _, line):
+        _, incident_type, vin_number, make, _, year, _, _ = line.split(',')
         yield vin_number, [incident_type, make, year]
     
-    def reducer(self, key, values):
+    def reducer_1(self, key, values):
         make = ""
         year = ""
         for v in values:
@@ -16,7 +28,15 @@ class AutoBreakdown(MRJob):
             if v[0] == "A":
                 v[1] = make
                 v[2] = year
-                yield key, v
+                yield [key, v]
+    
+    def mapper_2(self, _, line):
+        _, make, year = line.split(',')
+        yield [make, year], 1
+
+    
+    def reducer_2(self, key, values):
+        yield key, sum(values)
 
 if __name__ == '__main__':
     AutoBreakdown.run()
