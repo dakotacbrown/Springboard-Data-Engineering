@@ -7,11 +7,12 @@ class AutoBreakdown(MRJob):
         yield vin_number, [incident_type, make, year]
     
     def reducer(self, key, values):
+        make = ""
+        year = ""
         for v in values:
             if v[0] == "I":
                 make = v[1]
                 year = v[2]
-        for v in values:
             if v[0] == "A":
                 v[1] = make
                 v[2] = year
