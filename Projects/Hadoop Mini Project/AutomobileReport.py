@@ -1,3 +1,4 @@
+from xml.etree.ElementInclude import include
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
@@ -21,17 +22,19 @@ class AutoBreakdown(MRJob):
     def reducer_1(self, key, values):
         make = ""
         year = ""
+
         for v in values:
             if v[0] == "I":
                 make = v[1]
                 year = v[2]
-            if v[0] == "A":
-                v[1] = make
-                v[2] = year
-                yield [key, v]
+                break
+
+        for v in values:
+            if v[0] =="A":
+                yield key, [make, year]
     
     def mapper_2(self, _, line):
-        _, make, year = line
+        make, year = line
         yield [make, year], 1
 
     
