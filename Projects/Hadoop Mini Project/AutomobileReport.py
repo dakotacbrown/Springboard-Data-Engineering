@@ -1,4 +1,3 @@
-from xml.etree.ElementInclude import include
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
