@@ -2,15 +2,11 @@ import pyspark
 from pyspark.sql import SparkSession
 #import broadcast
 from pyspark.sql.functions import count, month, broadcast
-import os
-
 
 spark = SparkSession.builder.appName('Optimize I').getOrCreate()
 
 #partition management
 spark.conf.set("spark.sql.shuffle.partitions", 4)
-
-base_path = os.getcwd()
 
 #wrong path used updated to correct path
 answers_input_path = 'data/answers'
