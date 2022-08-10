@@ -6,7 +6,7 @@ This is the repository for Dakota Brown's Springboard Data Engineering Capstone 
 
 1. [docker](https://docs.docker.com/get-docker/) (docker-compose will be needed as well).
 2. [AWS account](https://aws.amazon.com/) to set up cloud services.
-3. [Install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+3. [Install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) AWS CLI on an EC2 instance.
 4. [Configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) AWS CLI on an EC2 instance.
 
 # Design
@@ -48,13 +48,12 @@ Remove `-d` to see everything start up and view any errors if needed.
 
 go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on the `who_data` DAG. You can check the status at [http://localhost:8080/admin/airflow/graph?dag_id=who_data](http://localhost:8080/admin/airflow/graph?dag_id=who_data). 
 
+![DAG](assets/images/dag_design.png)
+
 In EC2, make sure you're able to access the port airflow is bound to. The photo below helped me, however you would have to allow
 public traffic to EMR or it would block the creation of the an EMR instance from EC2.
 
 ![Airflow fix.](assets/images/emr_rules.png)
-
-
-![DAG](assets/images/dag_design.png)
 
 # Terminate local instance
 
