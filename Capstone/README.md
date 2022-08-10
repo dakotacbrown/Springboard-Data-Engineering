@@ -51,7 +51,7 @@ go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on t
 In EC2, make sure you're able to access the port airflow is bound to. The photo below helped me, however you would have to allow
 public traffic to EMR or it would block the creation of the an EMR instance from EC2.
 
-[Airflow fix.](assets/images/emr_rules.png)
+![Airflow fix.](assets/images/emr_rules.png)
 
 
 ![DAG](assets/images/dag_design.png)
