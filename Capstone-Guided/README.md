@@ -11,7 +11,7 @@ This is the repository for Dakota Brown's Springboard Data Engineering Capstone 
 
 # Design
 
-![DAG Design](assets/images/architecture.png)
+![ETL Design](assets/images/architecture.png)
 
 # Data
 

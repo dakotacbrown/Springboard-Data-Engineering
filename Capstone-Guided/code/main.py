@@ -7,7 +7,7 @@ from transformer.transformer import Transformer
 
 log = Log(__name__)  # logger for project
 
-log.logger.info('ELTL Starting')
+log.logger.info('ETL Starting')
 
 today = date.today().strftime('%Y/%m/%d')
 client = boto3.client('s3')

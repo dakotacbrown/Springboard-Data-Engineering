@@ -19,7 +19,7 @@ SPARK_STEPS = [
                 "s3",
                 "cp",
                 "--recursive",
-                "s3://sb-de-c2/scripts/",
+                "s3://sb-de-c3/scripts/",
                 "/home/hadoop/"
             ],
         },
@@ -41,7 +41,7 @@ SPARK_STEPS = [
         },
     },
     {
-        "Name": "ETL",
+        "Name": "ELTL",
         "ActionOnFailure": "CANCEL_AND_WAIT",
         "HadoopJarStep": {
             "Jar": "command-runner.jar",
@@ -55,7 +55,7 @@ SPARK_STEPS = [
 ]
 
 JOB_FLOW_OVERRIDES = {
-    "Name": "Finances - Stocks",
+    "Name": "Reddit Place",
     "ReleaseLabel": "emr-5.36.0",
     "Applications": [{"Name": "Spark"}, {"Name": "Zeppelin"}],
     "Instances": {
@@ -64,15 +64,15 @@ JOB_FLOW_OVERRIDES = {
                 "Name": "Master Instance Group",
                 "Market": "SPOT",
                 "InstanceRole": "MASTER",
-                "InstanceType": "m4.large",
+                "InstanceType": "c5.4xlarge",
                 "InstanceCount": 1,
             },
             {
                 "Name": "Core Instance Group",
                 "Market": "SPOT",
                 "InstanceRole": "CORE",
-                "InstanceType": "m4.large",
-                "InstanceCount": 2,
+                "InstanceType": "c5.4xlarge",
+                "InstanceCount": 1,
             },
         ],
         "KeepJobFlowAliveWhenNoSteps": True,
@@ -95,10 +95,10 @@ default_arguments = {
 }
 
 etl_dag = DAG(
-    'finance_dag',
+    'reddit_dag',
     default_args=default_arguments,
-    description='A DAG for finance data',
-    schedule_interval=timedelta(days=1)
+    description='A DAG for reddit place data',
+    schedule_interval='@once'
 )
 
 t0 = DummyOperator(

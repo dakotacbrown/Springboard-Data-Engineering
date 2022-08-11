@@ -1,6 +1,6 @@
-# Springboard Data Engineering Capstone 1
+# Springboard Data Engineering Personal Project
 
-This is the repository for Dakota Brown's Springboard Data Engineering Capstone 1
+This is the repository for Dakota Brown's Data Engineering Personal Project
 
 # Prerequisites
 
@@ -15,7 +15,7 @@ This is the repository for Dakota Brown's Springboard Data Engineering Capstone 
 
 # Data
 
-[WHO medical data through the world bank.](https://data.worldbank.org/)
+Reddit r/place [2017](https://www.reddit.com/r/redditdata/comments/6640ru/place_datasets_april_fools_2017/) and [2022](https://www.reddit.com/r/place/comments/txvk2d/rplace_datasets_april_fools_2022/) data
 
 
 # Setup and run
@@ -46,7 +46,7 @@ docker-compose -f docker-compose-LocalExecutor.yml up -d
 
 Remove `-d` to see everything start up and view any errors if needed.
 
-go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on the `who_data` DAG. You can check the status at [http://localhost:8080/admin/airflow/graph?dag_id=who_data](http://localhost:8080/admin/airflow/graph?dag_id=who_data). 
+go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on the `reddit_dag` DAG. You can check the status at [http://localhost:8080/admin/airflow/graph?dag_id=reddit_dag](http://localhost:8080/admin/airflow/graph?dag_id=reddit_dag). 
 
 ![DAG](assets/images/dag_design.png)
 
