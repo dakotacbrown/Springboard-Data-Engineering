@@ -46,7 +46,7 @@ docker-compose -f docker-compose-LocalExecutor.yml up -d
 
 Remove `-d` to see everything start up and view any errors if needed.
 
-go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on the `who_data` DAG. You can check the status at [http://localhost:8080/admin/airflow/graph?dag_id=who_data](http://localhost:8080/admin/airflow/graph?dag_id=who_data). 
+go to [http://localhost:8080/admin/](http://localhost:8080/admin/) and turn on the `finance_dag` DAG. You can check the status at [http://localhost:8080/admin/airflow/graph?dag_id=finance_dag](http://localhost:8080/admin/airflow/graph?dag_id=finance_dag). 
 
 ![DAG](assets/images/dag_design.png)
 
