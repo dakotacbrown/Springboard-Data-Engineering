@@ -8,6 +8,7 @@ This is the repository for Dakota Brown's Springboard Data Engineering Capstone 
 2. [AWS account](https://aws.amazon.com/) to set up cloud services.
 3. [Install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) AWS CLI on an EC2 instance.
 4. [Configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) AWS CLI on an EC2 instance.
+5. [Visualization](https://public.tableau.com/app/profile/dakota.cheyenne.brown/viz/Capstone1Visualization_16604991072950/HealthCarein2009vs2019) Data visualization can be found here.
 
 # Design
 
