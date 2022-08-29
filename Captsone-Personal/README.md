@@ -2,6 +2,9 @@
 
 This is the repository for Dakota Brown's Data Engineering Personal Project
 
+![Place 2017](assets/images/place2017.png)
+![Place 2022](assets/images/place2022.png)
+
 # Prerequisites
 
 1. [docker](https://docs.docker.com/get-docker/) (docker-compose will be needed as well).
